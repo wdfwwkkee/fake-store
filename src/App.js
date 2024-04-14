@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route element={<Home />} path="/" />
-          <Route element={<Cart />} path="/cart"/>
-          <Route element={<Contacts />} path="/contacts" />
-          <Route element={<About />} path="/about" />
+          <Route exact element={<Home />} path="/fake-store/" />
+          <Route element={<Cart />} path="/fake-store/cart"/>
+          <Route element={<Contacts />} path="/fake-store/contacts" />
+          <Route element={<About />} path="/fake-store/about" />
 
           <Route path="/*" element={<div>404 not Found</div>} />
         </Routes>
