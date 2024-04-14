@@ -1,0 +1,257 @@
+* {
+  font-size: 40px;
+}
+
+.header {
+  font-size: 40px;
+  display: flex;
+  padding: 30px 15px;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(30, 30, 30, 0.984);
+  .navBar {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.footer {
+  padding: 20px 0px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 30, 30, 0.984);
+}
+
+button {
+  transition: background 0.3s ease;
+}
+
+.ProductList {
+  background: rgba(61, 61, 61, 0.984);
+}
+
+.About {
+  background: rgba(61, 61, 61, 0.984);
+  main {
+    max-width: 600px;
+    min-height: 750px;
+    color: white;
+    padding: 30px 0px;
+    font-size: 60px;
+
+    .txt {
+      padding: 0 50px;
+      font-size: 50px;
+      max-width: 500px;
+    }
+  }
+}
+
+.Contacts {
+  main {
+    background: rgba(61, 61, 61, 0.984);
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    .contactList {
+      padding: 50px 0px;
+      margin: 0 auto;
+      justify-items: center;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+      .contactItem {
+        grid-column: span 6;
+        a {
+          display: flex;
+          gap: 5px;
+          div {
+            font-size: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.price {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.ProductContent {
+  max-width: 1230px;
+  min-height: 1000px;
+  .Item {
+    grid-column: span 4;
+    background: white;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    box-shadow: 3px 4px 10px black;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px 30px;
+
+    .item-name {
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+    .item-price {
+      margin-bottom: 60px;
+    }
+
+    .item-img {
+      margin-bottom: 50px;
+
+      img {
+        max-width: 300px;
+        height: 150px;
+      }
+    }
+    button {
+      align-self: flex-end;
+      font-size: 25px;
+      margin-top: 20px;
+      padding: 10px 30px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 10px;
+      background: rgba(30, 30, 30, 0.984);
+      transition: background 0.3s ease;
+      &:hover {
+        background: rgba(30, 30, 30, 0.672);
+      }
+    }
+  }
+  margin: 0 auto;
+  display: grid;
+  padding: 30px 15px;
+  justify-content: center;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.cartItem {
+  .actions {
+    #inc {
+      background: green;
+    }
+    #dec {
+      background: red;
+    }
+    align-items: center;
+    gap: 20px;
+    button {
+      color: white;
+      border-radius: 30px;
+      padding: 5px 10px;
+      font-size: 30px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+    }
+  }
+
+  .DeleteItemCart {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 5px;
+    font-weight: 700;
+    right: 5px;
+  }
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  padding: 20px 60px 20px 10px;
+  display: flex;
+  gap: 50px;
+  margin-bottom: 10px;
+  align-items: center;
+
+  .cartItemImg {
+    img {
+      max-width: 100px;
+    }
+  }
+}
+
+.footer {
+  font-size: 40px;
+}
+
+.cart {
+  font-size: 25px;
+  position: relative;
+  .countCart {
+    font-size: 30px;
+    position: absolute;
+    top: -10px;
+    background: white;
+    padding: 1px 10px;
+    border-radius: 50%;
+    left: -10px;
+  }
+}
+
+.Cart {
+  background: rgba(61, 61, 61, 0.984);
+}
+
+.CartList {
+  padding: 30px 0px;
+  display: flex;
+  align-items: flex-start;
+  min-height: 750px;
+  max-width: 1300px;
+  margin: 0 auto;
+  justify-content: space-between;
+
+  .purchaseForm {
+    .total {
+      font-weight: 700;
+      font-size: 30px;
+    }
+    button {
+      align-self: stretch;
+      background: rgba(61, 61, 61, 0.984);
+      border: none;
+      cursor: pointer;
+      color: white;
+      border-radius: 15px;
+      padding: 10px 0px;
+      &:hover {
+        background: rgba(30, 30, 30, 0.672);
+      }
+    }
+    background: white;
+    padding: 20px 30px;
+    width: 300px;
+    border-radius: 15px;
+    align-items: center;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+  }
+}
