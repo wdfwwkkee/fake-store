@@ -4,7 +4,7 @@ export const service = {
 
 
     async getProducts() {
-        const responce = await axios.get("http://localhost:8080/products");
+        const responce = await axios.get("https://my-json-server.typicode.com/wdfwwkkee/fake-store/products");
         return responce.data;
     }
 
