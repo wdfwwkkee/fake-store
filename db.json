@@ -1,0 +1,40 @@
+{
+    "products" : [
+        {
+            "id" : 1,
+            "name" : "Iphone",
+            "price" : 100000,
+            "image" : "https://my-apple-store.ru/wa-data/public/shop/products/03/44/14403/images/26874/26874.500@2x.png"
+        },
+        {
+            "id" : 2,
+            "name" : "MacBook",
+            "price" : 200000,
+            "image" : "https://t4.ftcdn.net/jpg/06/01/14/23/360_F_601142328_VnY6DMf1sC0RULodemaCSrvXSlFhO1lA.jpg"
+        },
+        {
+            "id" : 3,
+            "name" : "IMAC",
+            "price" : 300000,
+            "image" : "https://store-apple.msk.ru/image/cache/catalog/tovary/imac/imac-21-5/2020/imac-27-2020-800x800.jpg"
+        },
+        {
+            "id" : 4,
+            "name" : "Iphone",
+            "price" : 100000,
+            "image" : "https://my-apple-store.ru/wa-data/public/shop/products/03/44/14403/images/26874/26874.500@2x.png"
+        },
+        {
+            "id" : 5,
+            "name" : "MacBook",
+            "price" : 200000,
+            "image" : "https://t4.ftcdn.net/jpg/06/01/14/23/360_F_601142328_VnY6DMf1sC0RULodemaCSrvXSlFhO1lA.jpg"
+        },
+        {
+            "id" : 6,
+            "name" : "IMAC",
+            "price" : 300000,
+            "image" : "https://store-apple.msk.ru/image/cache/catalog/tovary/imac/imac-21-5/2020/imac-27-2020-800x800.jpg"
+        }
+    ]
+}
