@@ -63,6 +63,9 @@ const ProductDetail = () => {
                 </div>
                 <div className="CarDetail-img">
                     <img src={product.image} alt="" />
+                    <div className="CarDetail-desc">
+                        {product.desc}
+                    </div>
                 </div>
                 <div className="CarDetail-info">
                     <div className="CarDetail-name">
@@ -71,9 +74,7 @@ const ProductDetail = () => {
                     <div className="CarDetail-price">
                         <Price price={product.price} />
                     </div>
-                    <div className="CarDetail-desc">
-                        {product.desc}
-                    </div>
+
                     {isExist ?
                         <div style={{display : 'flex', gap : 10}}>
                             <button style={{ margin: 0 }} onClick={() => dispatch(actions.incrementQuantity(product))}>+
