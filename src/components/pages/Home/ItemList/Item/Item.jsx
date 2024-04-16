@@ -3,9 +3,11 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { actions } from '../../../../../Slices/cart.slice';
 import Price from '../../../../UI/Price';
+import { Link } from 'react-router-dom';
 
 
 const Item = ({ item }) => {
+
 
     const dispatch = useDispatch();
     const { cart } = useSelector(state => state)
@@ -32,6 +34,9 @@ const Item = ({ item }) => {
             </div>
             <div className="item-price">
                 <Price price={item.price} />
+            </div>
+            <div className="item-readMore">
+                <Link to={`/fake-store/product/${item.id}`} style={{fontSize : 20, color : 'rgb(26, 123, 208)'}}>Read More</Link>
             </div>
             {isExist ?
                 <div style={{display : 'flex', alignItems : 'center', gap : 5}}>
