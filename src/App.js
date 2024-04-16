@@ -13,7 +13,6 @@ import { service } from "./service/service";
 
 function App() {
 
-  console.log("asd")
   const [products, setProducts] = useState([])
 
 

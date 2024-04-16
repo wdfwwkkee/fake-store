@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { service } from '../../../../service/service'
+import React from 'react'
 import Item from './Item/Item'
 
 const ItemsList = (props) => {

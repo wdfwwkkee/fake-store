@@ -29,6 +29,9 @@ export const cartSlice = createSlice({
         }
       }
     },
+    clearCart : (state) => {
+      state.length = 0;
+    }
   },
 });
 
