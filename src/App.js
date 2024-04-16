@@ -9,6 +9,7 @@ import About from './components/pages/About/About'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { service } from "./service/service";
+import ProductDetail from "./components/pages/Home/ItemList/Item/ProductDetail/ProductDetail";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route element={<Cart />} path="/fake-store/cart"/>
           <Route element={<Contacts />} path="/fake-store/contacts" />
           <Route element={<About />} path="/fake-store/about" />
+          <Route element={<ProductDetail />} path="/fake-store/product/:id" />
 
           <Route path="/*" element={<div>404 not Found</div>} />
         </Routes>

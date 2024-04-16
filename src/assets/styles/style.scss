@@ -104,8 +104,16 @@ button {
       margin-bottom: 30px;
     }
     .item-price {
+      align-self: flex-start;
+      margin-bottom: 20px;
+    }
+    .item-readMore {
+      align-self: flex-start;
+      font-weight: 700;
+      text-decoration: underline;
       margin-bottom: 60px;
     }
+    
 
     .item-img {
       margin-bottom: 50px;
@@ -148,6 +156,60 @@ a {
 body {
   padding: 0;
   margin: 0;
+}
+
+
+.CarDetail {
+  main {
+    color: white;
+    button {
+      align-self: flex-end;
+      font-size: 25px;
+      margin-top: 20px;
+      padding: 10px 30px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 10px;
+      background: rgba(30, 30, 30, 0.984);
+      transition: background 0.3s ease;
+      &:hover {
+        background: rgba(30, 30, 30, 0.571);
+      }
+    }
+    position: relative;
+    padding: 50px 0px;
+    .CarDetail-img  {
+      img {
+        max-height: 500px;
+      }
+    }
+
+    .CarDetail-name {
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .CarDetail-price {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    background: rgba(61, 61, 61, 0.984);
+    min-height: 700px;
+  }
+  .back {
+    a {
+      font-size: 30px;
+      text-decoration: underline;
+    }
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
 }
 
 .cartItem {
