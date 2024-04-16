@@ -9,6 +9,8 @@ import { actions } from '../../../../../../Slices/cart.slice'
 
 const ProductDetail = () => {
 
+
+
     const { id } = useParams()
     const [product, setProduct] = useState({})
 
@@ -38,7 +40,6 @@ const ProductDetail = () => {
         fetchProduct()
 
     }, [id])
-    console.log(product)
 
     const dispatch = useDispatch()
 

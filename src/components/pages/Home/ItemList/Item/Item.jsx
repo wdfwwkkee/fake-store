@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
 
-
     const dispatch = useDispatch();
     const { cart } = useSelector(state => state)
 

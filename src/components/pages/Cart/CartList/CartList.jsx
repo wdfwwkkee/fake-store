@@ -17,12 +17,7 @@ const CartList = () => {
   });
 
   function purchase() {
-    if (cart.length !== 0) {
-      dispatch(actions.clearCart())
-    }
-    else {
-      alert("cart is empty")
-    }
+    dispatch(actions.clearCart())
   }
 
   return (
@@ -32,7 +27,7 @@ const CartList = () => {
       </div>
       <div className="purchaseForm">
         <div className='total' style={{display : 'flex', gap : 10}}>Total : <Price price={sum} /></div>
-      <button onClick={() => purchase()}>Purchase</button>
+      <button onClick={purchase}>Purchase</button>
       </div>
     </div>
   )

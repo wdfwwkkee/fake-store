@@ -6,8 +6,7 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, { payload: cartItem }) => {
       const isExist = state.some((item) => item.id === cartItem.id);
-      if (isExist) {
-      } else {
+      if (!isExist) {
         state.push({ ...cartItem, quantity: 1 });
       }
     },
@@ -29,10 +28,14 @@ export const cartSlice = createSlice({
         }
       }
     },
-    clearCart : (state) => {
-      state.length = 0;
-    }
+    clearCart: (state) => {
+      if (state.length !== 0) {
+        state.length = 0;
+      } else {
+        alert("cart is empty")
+      }
+    },
   },
 });
 
-export const { actions, reducer, existingCartItemIndex } = cartSlice;
+export const { actions, reducer } = cartSlice;
