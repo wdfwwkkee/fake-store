@@ -6,6 +6,7 @@ import Footer from '../../../../../../layouts/Footer'
 import Price from '../../../../../UI/Price'
 import { useDispatch, useSelector } from 'react-redux'
 import { actions } from '../../../../../../Slices/cart.slice'
+import CircularProgress from '@mui/material/CircularProgress';
 
 const ProductDetail = () => {
 
@@ -21,7 +22,7 @@ const ProductDetail = () => {
 
     function toggleDecrement(item) {
         const index = cart.findIndex((product) => product.id === item.id);
-        if (cart[index].quantity > 1)  {
+        if (cart[index].quantity > 1) {
             dispatch(actions.decrementQuantity(item))
         } else {
             dispatch(actions.deleteFromCart(item))
@@ -47,11 +48,15 @@ const ProductDetail = () => {
         <div className='CarDetail'>
             <Header />
             <main>
-                Loading...
+                <CircularProgress sx={{
+                    color: 'rgba(30, 30, 30, 0.984)',
+                    width: "100px!important"
+                }}
+                />
             </main>
             <Footer />
         </div>
-        
+
     )
 
 
@@ -77,7 +82,7 @@ const ProductDetail = () => {
                     </div>
 
                     {isExist ?
-                        <div style={{display : 'flex', gap : 10}}>
+                        <div style={{ display: 'flex', gap: 10 }}>
                             <button style={{ margin: 0 }} onClick={() => dispatch(actions.incrementQuantity(product))}>+
                             </button>
                             <div>{cart[existingCartItemIndex].quantity}</div>
