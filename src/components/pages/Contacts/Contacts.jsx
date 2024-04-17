@@ -9,7 +9,7 @@ const Contacts = () => {
             <main>
                 <div className="contactList">
                     <div className="contactItem">
-                        <a target='_blank' href="https://github.com/wdfwwkkee">
+                        <a rel="noreferrer" target='_blank' href="https://github.com/wdfwwkkee">
                             <div>GitHub</div>
                             <div>
                                 <svg height="50" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="50" data-view-component="true" class="octicon octicon-mark-github v-align-middle color-fg-default">
@@ -19,7 +19,7 @@ const Contacts = () => {
                         </a>
                     </div>
                     <div className="contactItem">
-                        <a target='_blank' href="https://t.me/wdfwwkkee">
+                        <a rel="noreferrer" target='_blank' href="https://t.me/wdfwwkkee">
                             <div>Telegram</div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
