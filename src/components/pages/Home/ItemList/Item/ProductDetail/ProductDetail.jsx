@@ -49,8 +49,7 @@ const ProductDetail = () => {
             <Header />
             <main>
                 <CircularProgress sx={{
-                    color: 'rgba(30, 30, 30, 0.984)',
-                    width: "100px!important"
+                    color: 'rgba(30, 30, 30, 0.984)'
                 }}
                 />
             </main>
