@@ -1,13 +1,17 @@
 import React from 'react'
-import CartItem from './CartItem/CartItem'
-import { useDispatch, useSelector } from 'react-redux'
-import Price from '../../../UI/Price'
-import { actions } from '../../../../Slices/cart.slice'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+
+import CartItem from './CartItem/CartItem'
+import Price from '../../../UI/Price'
+import { useCart } from '../../../../hooks/useCart'
+import { actions } from '../../../../Slices/cart.slice'
+
+
 
 const CartList = () => {
 
-  const { cart } = useSelector(state => state)
+  const cart = useCart();
 
   const dispatch = useDispatch();
 

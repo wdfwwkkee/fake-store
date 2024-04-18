@@ -1,14 +1,12 @@
 import React from 'react'
-
 import { useDispatch} from "react-redux"
+
 import { actions } from '../../../../../Slices/cart.slice';
 import Price from '../../../../UI/Price';
 
 const CartItem = ({ item, index }) => {
 
-
     const dispatch = useDispatch();
-
 
     return (
         <div className='cartItem'>

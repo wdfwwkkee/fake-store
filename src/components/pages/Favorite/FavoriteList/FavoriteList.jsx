@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom';
+
+import { actions } from '../../../../Slices/favortie.slice';
+import { useFavorite } from '../../../../hooks/useFavorite';
 
 
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
@@ -11,17 +15,17 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Button from '@mui/material/Button';
-import { actions } from '../../../../Slices/favortie.slice';
-import { Link } from 'react-router-dom';
 
 
 
 const FavoriteList = () => {
 
-    const [open, setOpen] = useState(false);
-
-
     const dispatch = useDispatch()
+    const favorite = useFavorite()
+
+
+    //Dialog
+    const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
         if (favorite.length === 0) return alert("favorite is empty")
@@ -37,7 +41,6 @@ const FavoriteList = () => {
         setOpen(false);
     };
 
-    const { favorite } = useSelector(state => state)
 
     return (
         <div className='FavoriteList'>

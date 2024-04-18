@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { actions } from '../../../../../Slices/cart.slice';
 import { actions as favoriteActions } from '../../../../../Slices/favortie.slice';
-
+import { useCart } from '../../../../../hooks/useCart';
+import { useFavorite } from '../../../../../hooks/useFavorite';
 import Price from '../../../../UI/Price';
-import { Link } from 'react-router-dom';
 
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
@@ -14,6 +15,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import { pink } from '@mui/material/colors';
+
 
 const Item = ({ item }) => {
 
@@ -38,7 +40,7 @@ const Item = ({ item }) => {
         setSnackPack((prev) => [...prev, { message, key: new Date().getTime() }]);
     };
 
-    const handleClose = (event, reason) => {
+    const handleClose = (reason) => {
         if (reason === 'clickaway') {
 
             setOpen(false);
@@ -51,27 +53,19 @@ const Item = ({ item }) => {
         setMessageInfo(undefined);
     };
 
-
-
     //Cart
-
-    const { cart } = useSelector(state => state)
+    const cart = useCart()
 
     const existingCartItemIndex = cart.findIndex((indexCart) => indexCart.id === item.id)
     const isExist = cart.some((itemCart) => itemCart.id === item.id)
 
     function toggleDecrement(item) {
         const index = cart.findIndex((product) => product.id === item.id);
-        if (cart[index].quantity > 1) {
-            dispatch(actions.decrementQuantity(item))
-        } else {
-            dispatch(actions.deleteFromCart(item))
-        }
+        cart[index].quantity > 1 ? dispatch(actions.decrementQuantity(item)) : dispatch(actions.deleteFromCart(item))
     }
 
     //Favorite
-
-    const { favorite } = useSelector(state => state);
+    const favorite = useFavorite();
     const [checked, setChecked] = useState(false)
     const favoriteItemExist = favorite.some((favItem) => favItem.id === item.id)
 
@@ -81,7 +75,7 @@ const Item = ({ item }) => {
 
     useEffect(() => {
 
-        favoriteItemExist ? setChecked(false) :  setChecked(true)
+        favoriteItemExist ? setChecked(false) : setChecked(true)
 
     }, [favoriteItemExist])
 

@@ -16,9 +16,11 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, { payload: cartItem }) => {
       const isExist = state.some((item) => item.id === cartItem.id);
-      if (!isExist) {
-        state.push({ ...cartItem, quantity: 1 });
-      }
+
+
+
+      if (!isExist) state.push({ ...cartItem, quantity: 1 }) 
+
       saveCartToLocalStorage(state)
     },
     deleteFromCart: (state, { payload: cartItem }) => {
@@ -33,11 +35,8 @@ export const cartSlice = createSlice({
     },
     decrementQuantity: (state, { payload: cartItem }) => {
       const index = state.findIndex((product) => product.id === cartItem.id);
-      if (state[index].quantity > 1) {
-        state[index].quantity--;
-      } else {
-        state.splice(index, 1);
-      }
+
+      state[index].quantity > 1 ? state[index].quantity-- : state.splice(index, 1);
       saveCartToLocalStorage(state)
     },
     clearCart: (state) => {
