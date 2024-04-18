@@ -12,6 +12,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Button from '@mui/material/Button';
 import { actions } from '../../../../Slices/favortie.slice';
+import { Link } from 'react-router-dom';
 
 
 
@@ -49,9 +50,12 @@ const FavoriteList = () => {
                 <div className="title" style={{ textAlign: 'center' }}>
                     Ваш список избранного:
                 </div>
-                <div className="FavList">
-                    {favorite.map(favItem => <FavoriteItem key={favItem.id} item={favItem} />)}
-                </div>
+                {favorite.length !== 0 ?
+                    <div className="FavList">
+                        {favorite.map(favItem => <FavoriteItem key={favItem.id} item={favItem} />)}
+                    </div>
+                    : <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }} >ТУТ ПОКА ЧТО ПУСТО <Link style={{ textDecoration: 'underline' }} to={'/fake-store/'}>Перейти в магазин</Link> </div>
+                }
                 <div className="dialog">
                     {favorite.length !== 0 ?
                         <React.Fragment>

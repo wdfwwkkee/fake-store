@@ -14,6 +14,7 @@ import Favorite from '@mui/icons-material/Favorite';
 import { pink } from '@mui/material/colors';
 import { actions } from '../../../../../Slices/favortie.slice';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -70,6 +71,9 @@ const FavoriteItem = ({ item }) => {
             </div>
             <div className="FavoriteItem-price">
                 <Price price={item.price} />
+            </div>
+            <div className="FavoriteItem-readmore">
+                <Link to={`/fake-store/product/${item.id}`} style={{color : 'rgb(26, 123, 208)', textDecoration : 'underline', fontSize : 25}}>ReadMore</Link>
             </div>
             <CardActions disableSpacing>
                 <ExpandMore
