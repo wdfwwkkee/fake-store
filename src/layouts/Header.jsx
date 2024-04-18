@@ -2,9 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 
+
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
 const Header = () => {
 
     const {cart} = useSelector(state => state)
+    const {favorite} = useSelector(state => state)
+
 
     return (
         <div className='header'>
@@ -21,6 +26,12 @@ const Header = () => {
                 <div className="navItem">
                     <Link to={'/fake-store/about'}>About</Link>
                 </div>
+            </div>
+            <div className="favorite">
+                <Link to={'/fake-store/favorite'}>
+                    <FavoriteBorderIcon sx={{color : 'white'}} />
+                </Link>
+                <span className='countFavorite'>{favorite.length}</span>
             </div>
             <div className="cart">
                 <Link to={'/fake-store/cart'}>

@@ -2,6 +2,10 @@
   font-size: 40px;
 }
 
+img {
+  object-fit: cover;
+}
+
 .header {
   font-size: 40px;
   display: flex;
@@ -113,7 +117,6 @@ button {
       text-decoration: underline;
       margin-bottom: 60px;
     }
-    
 
     .item-img {
       margin-bottom: 50px;
@@ -158,6 +161,57 @@ body {
   margin: 0;
 }
 
+.toggleFavorite {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.FavoriteList {
+  main {
+    position: relative;
+  }
+  .clearFavorite {
+    position: absolute;
+    top: -10px;
+    right: 0;
+  }
+  background: rgba(61, 61, 61, 0.984);
+  min-height: 740px;
+  color: white;
+  padding: 30px 50px;
+
+  .FavList {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+    align-items: start;
+  }
+
+  .title {
+    font-weight: 700;
+    margin-bottom: 50px;
+  }
+
+  .FavoriteItem {
+    position: relative;
+    box-shadow: 3px 4px 10px black;
+    grid-column: span 4;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    color: black;
+    background: white;
+    .FavoriteItem-desc {
+      font-size: 15px;
+      text-align: start;
+    }
+    .FavoriteItem-img {
+      max-width: 300px;
+      max-height: 200px;
+    }
+  }
+}
 
 .CarDetail {
   main {
@@ -180,7 +234,7 @@ body {
     }
     position: relative;
     padding: 50px 0px;
-    .CarDetail-img  {
+    .CarDetail-img {
       img {
         max-height: 500px;
       }
@@ -265,6 +319,20 @@ body {
 
 .footer {
   font-size: 40px;
+}
+
+.favorite {
+  position: relative;
+  .countFavorite {
+    pointer-events: none;
+    font-size: 30px;
+    position: absolute;
+    top: -10px;
+    background: white;
+    padding: 1px 10px;
+    border-radius: 50%;
+    left: -10px;
+  }
 }
 
 .cart {
