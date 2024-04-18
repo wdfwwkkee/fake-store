@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+
+import { useDispatch } from 'react-redux'
+import { actions } from '../../../../../../Slices/cart.slice'
+import { useCart } from '../../../../../../hooks/useCart'
+
 import { service } from '../../../../../../service/service'
-import Header from '../../../../../../layouts/Header'
+import Header from '../../../../../../layouts/Header/Header'
 import Footer from '../../../../../../layouts/Footer'
 import Price from '../../../../../UI/Price'
-import { useDispatch, useSelector } from 'react-redux'
-import { actions } from '../../../../../../Slices/cart.slice'
+
 import CircularProgress from '@mui/material/CircularProgress';
 
+
 const ProductDetail = () => {
-
-
 
     const { id } = useParams()
     const [product, setProduct] = useState({})
 
-    const { cart } = useSelector(state => state)
+    const cart = useCart();
+    const dispatch = useDispatch()
 
     const existingCartItemIndex = cart.findIndex((indexCart) => indexCart.id === product.id)
     const isExist = cart.some((itemCart) => itemCart.id === product.id)
 
     function toggleDecrement(item) {
         const index = cart.findIndex((product) => product.id === item.id);
-        if (cart[index].quantity > 1) {
-            dispatch(actions.decrementQuantity(item))
-        } else {
-            dispatch(actions.deleteFromCart(item))
-        }
+        cart[index].quantity > 1 ? dispatch(actions.decrementQuantity(item)) : dispatch(actions.deleteFromCart(item))
     }
 
     useEffect(() => {
@@ -42,7 +42,6 @@ const ProductDetail = () => {
 
     }, [id])
 
-    const dispatch = useDispatch()
 
     if (!product.id) return (
         <div className='CarDetail'>
@@ -79,7 +78,6 @@ const ProductDetail = () => {
                     <div className="CarDetail-price">
                         <Price price={product.price} />
                     </div>
-
                     {isExist ?
                         <div style={{ display: 'flex', gap: 10 }}>
                             <button style={{ margin: 0 }} onClick={() => dispatch(actions.incrementQuantity(product))}>+

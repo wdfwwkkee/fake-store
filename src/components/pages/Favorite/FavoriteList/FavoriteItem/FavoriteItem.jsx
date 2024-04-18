@@ -1,4 +1,10 @@
 import React, {useState} from 'react'
+
+import { actions } from '../../../../../Slices/favortie.slice';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
@@ -12,9 +18,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import { pink } from '@mui/material/colors';
-import { actions } from '../../../../../Slices/favortie.slice';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -30,16 +34,18 @@ const ExpandMore = styled((props) => {
 
 const FavoriteItem = ({ item }) => {
 
+    const dispatch = useDispatch()
+
+
+    //Card
+
     const [expanded, setExpanded] = useState(false);
+    const [checked, setChecked] = useState(false)
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
-
-    const dispatch = useDispatch()
-
-    const [checked, setChecked] = useState(false)
-
+    
     const handleChange = (event) => {
         setChecked(event.target.checked);
     };

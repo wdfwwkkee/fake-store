@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../../layouts/Header'
+import Header from '../../../layouts/Header/Header'
 import CartList from './CartList/CartList'
 import Footer from '../../../layouts/Footer'
 
