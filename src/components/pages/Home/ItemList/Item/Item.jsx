@@ -2,16 +2,24 @@ import React, { useEffect, useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { actions } from '../../../../../Slices/cart.slice';
+import { actions as favoriteActions } from '../../../../../Slices/favortie.slice';
+
 import Price from '../../../../UI/Price';
 import { Link } from 'react-router-dom';
 
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import { pink } from '@mui/material/colors';
 
 const Item = ({ item }) => {
 
+    const dispatch = useDispatch();
+
+    //SnackBar//
     const [snackPack, setSnackPack] = useState([]);
     const [open, setOpen] = useState(false);
     const [messageInfo, setMessageInfo] = useState(undefined);
@@ -43,7 +51,10 @@ const Item = ({ item }) => {
         setMessageInfo(undefined);
     };
 
-    const dispatch = useDispatch();
+
+
+    //Cart
+
     const { cart } = useSelector(state => state)
 
     const existingCartItemIndex = cart.findIndex((indexCart) => indexCart.id === item.id)
@@ -58,8 +69,44 @@ const Item = ({ item }) => {
         }
     }
 
+    //Favorite
+
+    const { favorite } = useSelector(state => state);
+    const [checked, setChecked] = useState(false)
+    const favoriteItemExist = favorite.some((favItem) => favItem.id === item.id)
+
+    const handleChange = (event) => {
+        setChecked(event.target.checked);
+    };
+
+    useEffect(() => {
+
+        favoriteItemExist ? setChecked(false) :  setChecked(true)
+
+    }, [favoriteItemExist])
+
+
+
     return (
         <div className='Item'>
+            <div className="toggleFavorite">
+                <Checkbox
+                    checked={checked}
+                    onChange={handleChange}
+                    onClick={() => dispatch(favoriteActions.toggleFavorites(item))}
+                    sx={{
+                        color: pink[800],
+                        '&.Mui-checked': {
+                            color: pink[600],
+                        },
+                        '& .MuiSvgIcon-root': {
+                            fontSize: 35
+                        }
+                    }}
+                    icon={<Favorite />}
+                    checkedIcon={<FavoriteBorderIcon />}
+                />
+            </div>
             <div className="item-img">
                 <img src={item.image} alt="" />
             </div>
@@ -86,7 +133,7 @@ const Item = ({ item }) => {
                 key={messageInfo ? messageInfo.key : undefined}
                 open={open}
                 autoHideDuration={1500}
-                sx={{width : 550, "div" :{fontSize : "30px!important"}}}
+                sx={{ width: 550, "div": { fontSize: "30px!important" } }}
                 onClose={handleClose}
                 TransitionProps={{ onExited: handleExited }}
                 message={messageInfo ? messageInfo.message : undefined}
@@ -95,11 +142,11 @@ const Item = ({ item }) => {
                         <IconButton
                             aria-label="close"
                             color="inherit"
-                            sx={{p : 0}}
+                            sx={{ p: 0 }}
                             onClick={handleClose}
                         >
-                            <CloseIcon sx={{ width : 30, "button" : {margin : 0}}} />
-                        </IconButton> 
+                            <CloseIcon sx={{ width: 30, "button": { margin: 0 } }} />
+                        </IconButton>
                     </React.Fragment>
                 }
             />
