@@ -21,31 +21,36 @@ const Header = () => {
                 <Link to={'/fake-store/'} >LOGO</Link>
             </div>
             <NavBar />
-            <div className="favorite">
-                <Link to={'/fake-store/favorite'}>
-                    {favorite.length !== 0 ?
-                        <Badge color="secondary" badgeContent={favorite.length}>
-                            <FavoriteIcon />
-                        </Badge>
+            <div className="userStore" style={{display : 'flex', gap : 20}}>
+                <div className="favorite">
+                    <Link to={'/fake-store/favorite'}>
+                        {favorite.length !== 0 ?
+                            <Badge color="secondary" badgeContent={favorite.length}>
+                                <FavoriteIcon />
+                            </Badge>
 
-                        : <Badge color="secondary" showZero>
-                            <FavoriteIcon />
-                        </Badge>
-                    }
-                </Link>
+                            : <Badge color="secondary" showZero>
+                                <FavoriteIcon />
+                            </Badge>
+                        }
+                    </Link>
+                </div>
+                <div className="cart">
+                    <Link to={'/fake-store/cart'}>
+                        {cart.length !== 0 ?
+                            <Badge color="secondary" style={{ fontSize: 20 }} badgeContent={cart.length}>
+                                <ShoppingCartIcon />
+                            </Badge>
+
+                            : <Badge color="secondary" showZero>
+                                <ShoppingCartIcon />
+                            </Badge>
+                        }
+                    </Link>
+                </div>
             </div>
-            <div className="cart">
-                <Link to={'/fake-store/cart'}>
-                    {cart.length !== 0 ?
-                        <Badge color="secondary" style={{ fontSize: 20 }} badgeContent={cart.length}>
-                            <ShoppingCartIcon />
-                        </Badge>
-
-                        : <Badge color="secondary" showZero>
-                            <ShoppingCartIcon />
-                        </Badge>
-                    }
-                </Link>
+            <div className="user">
+                <Link to={'/fake-store/sign-up'}>Login</Link>
             </div>
         </div>
     )
