@@ -3,11 +3,11 @@ import Header from '../../../layouts/Header/Header'
 import Footer from '../../../layouts/Footer'
 import ItemsList from './ItemList/ItemsList'
 
-const Home = (props) => {
+const Home = () => {
   return (
     <div>
         <Header />
-        <ItemsList products={props.products} />
+        <ItemsList />
         <Footer />
     </div>
   )
