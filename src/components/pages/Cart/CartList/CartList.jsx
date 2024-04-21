@@ -31,7 +31,7 @@ const CartList = () => {
         {cart.length !== 0 ?
           cart.map((itemCart, index) => <CartItem index={index} key={itemCart.id} item={itemCart} />)
           :
-          <div style={{ color: 'white', display: 'flex', flexDirection: 'column', textAlign: 'center', gap: 10 }}>Ваша корзина пуста <Link style={{ textDecoration: 'underline' }} to={'/fake-store/'}>Перейти к покупкам</Link> </div>
+          <div style={{ color: 'white', display: 'flex', flexDirection: 'column', textAlign: 'center', gap: 10, marginBottom : 20 }}>Ваша корзина пуста <Link style={{ textDecoration: 'underline' }} to={'/fake-store/'}>Перейти к покупкам</Link> </div>
         }
       </div>
       <div className="purchaseForm">
