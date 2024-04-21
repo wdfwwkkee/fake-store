@@ -70,7 +70,7 @@ const FavoriteList = () => {
                             >
                                 <DialogContent>
                                     <DialogContentText id="alert-dialog-description">
-                                        Уверены что хотите очистить корзину ?
+                                        Уверены что хотите очистить избранное ?
                                     </DialogContentText>
                                 </DialogContent>
                                 <DialogActions>
