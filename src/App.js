@@ -1,11 +1,11 @@
 import "./assets/styles/style.scss";
-import React, { useState } from "react";
+import React from "react";
 import Home from "./components/pages/Home/Home";
 import Cart from "./components/pages/Cart/Cart";
 import Contacts from "./components/pages/Contacts/Contacts";
 import About from "./components/pages/About/About";
 
-import { BrowserRouter, Routes, Route, Link, redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import ProductDetail from "./components/pages/Home/ItemList/Item/ProductDetail/ProductDetail";
 import Favorite from "./components/pages/Favorite/Favorite";
