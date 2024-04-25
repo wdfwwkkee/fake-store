@@ -27,7 +27,7 @@ const pages = ["products", "about", "contacts"];
 const Header = () => {
   const cart = useCart();
   const favorite = useFavorite();
-  const user = useUser();
+  const {isAuth, email} = useUser();
 
 
 
@@ -176,7 +176,7 @@ const Header = () => {
               </div>
             </Box>
             <div className="user">
-              {user.value ? <h3>{user.value}</h3> : <div ><Link to={'/fake-store/sign-in'}>Login</Link></div>}
+              {isAuth ? <h3>{email}</h3> : <div ><Link to={'/fake-store/sign-in'}>Login</Link></div>}
             </div>
           </Toolbar>
         </Container>
