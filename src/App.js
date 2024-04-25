@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProductDetail from "./components/pages/Home/ItemList/Item/ProductDetail/ProductDetail";
 import Favorite from "./components/pages/Favorite/Favorite";
 import Products from "./components/pages/Products/Products";
+import SignIn from "./components/pages/SignIn/SignIn";
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
           <Route element={<Contacts />} path="/fake-store/contacts" />
           <Route element={<About />} path="/fake-store/about" />
           <Route element={<Products />} path="/fake-store/products" />
+          <Route element={<SignIn />} path="/fake-store/sign-in" />
+
 
           <Route element={<ProductDetail />} path="/fake-store/product/:id" />
           <Route element={<Favorite />} path="/fake-store/favorite" />

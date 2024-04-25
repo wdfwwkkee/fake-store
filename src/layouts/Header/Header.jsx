@@ -176,7 +176,7 @@ const Header = () => {
               </div>
             </Box>
             <div className="user">
-              {user.value ? <h3>{user.value}</h3> : <div style={{display : 'flex', flexDirection : "column"}}><Link to={'/fake-store/sign-in'}>Sign In</Link><Link to={'/fake-store/sign-up'} >SignUp</Link></div>}
+              {user.value ? <h3>{user.value}</h3> : <div ><Link to={'/fake-store/sign-in'}>Login</Link></div>}
             </div>
           </Toolbar>
         </Container>
