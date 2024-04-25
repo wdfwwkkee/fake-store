@@ -33,15 +33,17 @@ const SignIn = () => {
     const password = getValues("password");
 
     signInWithEmailAndPassword(auth, email, password)
-    .then(({user}) => dispatch(actions.loginUser({email : user.email, token : user.accessToken, id : user.uid})))
-    .catch((error) => {
-      if (error.message === authInvalidErrorMessage)
-        alert("Неправильная почта или пароль");
-    });
+      .then(({ user }) => dispatch(actions.loginUser({ email: user.email, token: user.accessToken, id: user.uid })))
+      .catch((error) => {
+        if (error.message === authInvalidErrorMessage) {
+          setError("Неправильная почта или пароль")
+
+        } else {
+          console.log('unexpected error', error)
+        }
+      });
 
     setError("");
-
-    dispatch(actions.loginUser({email, password}));
   };
 
   return (
