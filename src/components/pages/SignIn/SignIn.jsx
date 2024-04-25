@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../../layouts/Header/Header";
 import Footer from "../../../layouts/Footer";
 
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import { actions } from "../../../Slices/user.slice";
+
 import { auth } from "../../../utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-
-
 
 
 const authInvalidErrorMessage = "Firebase: Error (auth/invalid-credential).";
 
 
 const SignIn = () => {
+  const dispatch = useDispatch();
+
+  const [error, setError] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -21,13 +27,21 @@ const SignIn = () => {
     formState: { errors },
   } = useForm();
 
-
-
   const login = () => {
-    const email = getValues('userMail')
-    const password = getValues('password')
 
-    signInWithEmailAndPassword(auth, email, password).then(user => console.log(user)).catch(error => console.log(error.message))
+    const email = getValues("userMail");
+    const password = getValues("password");
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then(({user}) => dispatch(actions.loginUser({email : user.email, token : user.accessToken, id : user.uid})))
+    .catch((error) => {
+      if (error.message === authInvalidErrorMessage)
+        alert("Неправильная почта или пароль");
+    });
+
+    setError("");
+
+    dispatch(actions.loginUser({email, password}));
   };
 
   return (
@@ -43,9 +57,12 @@ const SignIn = () => {
         <div>password : </div>
         <input
           type="password"
-          {...register("password")}
+          {...register("password", { required: true })}
           placeholder="password"
         />
+        {error ? (
+          <div style={{ color: "red", fontSize: 25 }}>{error}</div>
+        ) : null}
 
         <div
           style={{
