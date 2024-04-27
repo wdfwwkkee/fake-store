@@ -381,6 +381,84 @@ body {
   }
 }
 
+.logOut-btn {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(61, 61, 61, 0.984);
+  border-radius: 8px;
+  color: white;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.profile {
+  main {
+    background: rgba(61, 61, 61, 0.984);
+    min-height: 800px;
+
+
+    .profile-content {
+      color: white;
+      padding: 50px 0px;
+      max-width: 1200px;
+      display: grid;
+      margin: 0 auto;
+      grid-template-columns: repeat(12, 1fr);
+
+
+      .avatar {
+        img {
+          max-width: 300px;
+        }
+      }
+
+      .info {
+        position: relative;
+        grid-column: 1 / 7;
+        background: rgba(47, 47, 47, 0.984);
+        padding: 50px;
+        border-radius: 8px;
+
+
+        .editBtn {
+          button {
+            color: white;
+            border: 1px solid black;
+            border-radius: 15px;
+            background: transparent;
+            cursor: pointer;
+          }
+          position: absolute;
+          top: 20px;
+          right: 10px;
+        }
+
+
+        .info_inputs {
+          margin-bottom: 15px;
+          color: white;
+          div {
+            display: flex;
+            gap: 10px;
+            input {
+              width: 100%;
+              color: white;
+            }
+
+          }
+        }
+
+      }
+      .avatar {
+        grid-column: 9 / 13;
+        
+      }
+    }
+
+  }
+}
+
 .Cart {
   background: rgba(61, 61, 61, 0.984);
 }

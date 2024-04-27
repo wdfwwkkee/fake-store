@@ -12,6 +12,7 @@ import Favorite from "./components/pages/Favorite/Favorite";
 import Products from "./components/pages/Products/Products";
 import SignIn from "./components/pages/SignIn/SignIn";
 import NotFound from "./components/pages/NotFound/NotFound";
+import Profile from "./components/pages/Profile/Profile";
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
           <Route element={<About />} path="/fake-store/about" />
           <Route element={<Products />} path="/fake-store/products" />
           <Route element={<SignIn />} path="/fake-store/sign-in" />
+          <Route element={<Profile />} path="/fake-store/profile" />
+
 
 
           <Route element={<ProductDetail />} path="/fake-store/product/:id" />
