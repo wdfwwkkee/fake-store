@@ -3,7 +3,7 @@ import Header from "../../../layouts/Header/Header";
 import Footer from "../../../layouts/Footer";
 
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import { actions } from "../../../Slices/user.slice";
@@ -18,11 +18,14 @@ const authInvalidErrorMessage = "Firebase: Error (auth/invalid-credential).";
 const SignIn = () => {
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const [error, setError] = useState("");
 
   const {
     register,
     handleSubmit,
+    reset,
     getValues,
     formState: { errors },
   } = useForm();
@@ -33,33 +36,39 @@ const SignIn = () => {
     const password = getValues("password");
 
     signInWithEmailAndPassword(auth, email, password)
-    .then(({user}) => dispatch(actions.loginUser({email : user.email, token : user.accessToken, id : user.uid})))
-    .catch((error) => {
-      if (error.message === authInvalidErrorMessage)
-        alert("Неправильная почта или пароль");
-    });
+      .then(({ user }) => dispatch(actions.loginUser({ email: user.email, token: user.accessToken, id: user.uid })), reset(), navigate("/fake-store/products", { replace: true }))
+      .catch((error) => {
+        if (error.message === authInvalidErrorMessage) {
+          setError("Неправильная почта или пароль")
+        } else {
+          console.log('unexpected error', error)
+        }
+      });
 
     setError("");
-
-    dispatch(actions.loginUser({email, password}));
   };
+
+
+  console.log(errors)
 
   return (
     <div>
       <Header />
       <form onSubmit={handleSubmit(login)} className="SignIn-form">
-        <div>email : </div>
+        <div>Email : </div>
         <input
           type="email"
-          {...register("userMail", { required: true })}
-          placeholder="email"
+          {...register("userMail", { required: "Email is required" })}
+          placeholder="Email"
         />
-        <div>password : </div>
+        {errors?.userMail?.message && <div style={{ color: 'red', fontSize: 25 }}>Email is required</div>}
+        <div>Password : </div>
         <input
           type="password"
-          {...register("password", { required: true })}
-          placeholder="password"
+          {...register("password", { required: "Password is required" })}
+          placeholder="Password"
         />
+        {errors?.password?.message && <div style={{ color: 'red', fontSize: 25 }}>Password is required</div>}
         {error ? (
           <div style={{ color: "red", fontSize: 25 }}>{error}</div>
         ) : null}
