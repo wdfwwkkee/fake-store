@@ -31,6 +31,8 @@ export const userSlice = createSlice({
       state.email = null;
       state.token = null;
       state.id = null;
+      state.avatar = null;
+      state.name = null;
       saveUserToLocalStorage(state);
     },
     changeUserData: (state, { payload: userData }) => {
